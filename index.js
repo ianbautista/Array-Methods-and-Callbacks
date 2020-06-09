@@ -40,17 +40,20 @@ console.log(getFinals(fifaData));
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function 
 `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
-function getYears(/* code here */) {
+function getYears(callback, data) {
 	/* code here */
+	return callback(data).map((record) => record.Year);
 }
 
-getYears();
+console.log(getYears(getFinals, fifaData));
 
 /* Task 5: Implement a higher-order function called `getWinners`, that accepts the callback function 
-`getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */
+`getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all 
+winning countries in an array called `winners` */
 
-function getWinners(/* code here */) {
+function getWinners(callback, data) {
 	/* code here */
+	callback(data).map((record) => record.Year);
 }
 
 getWinners();
