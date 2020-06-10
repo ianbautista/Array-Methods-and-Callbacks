@@ -42,7 +42,8 @@ console.log(getFinals(fifaData));
 
 function getYears(callback, data) {
 	/* code here */
-	return callback(data).map((record) => record.Year);
+	let years = callback(data).map((record) => record.Year);
+	return years;
 }
 
 console.log(getYears(getFinals, fifaData));
@@ -53,10 +54,18 @@ winning countries in an array called `winners` */
 
 function getWinners(callback, data) {
 	/* code here */
-	callback(data).map((record) => record.Year);
+	// let = []
+	let winners = callback(data).map((record) => {
+		if (record["Home Team Goals"] > record["Away Team Goals"]) {
+			return record["Home Team Name"];
+		} else {
+			return record["Away Team Name"];
+		}
+	});
+	return winners;
 }
 
-getWinners();
+console.log(getWinners(getFinals, fifaData));
 
 /* Task 6: Implement a higher-order function called `getWinnersByYear` that accepts the following 
 parameters and returns a set of strings "In {year}, {country} won the world cup!" 
