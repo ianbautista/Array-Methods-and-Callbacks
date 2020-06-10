@@ -64,7 +64,6 @@ function getWinners(callback, data) {
 	});
 	return winners;
 }
-
 console.log(getWinners(getFinals, fifaData));
 
 /* Task 6: Implement a higher-order function called `getWinnersByYear` that accepts the following 
@@ -75,9 +74,16 @@ Parameters:
  * callback function getYears
  */
 
-function getWinnersByYear(/* code here */) {}
-
-getWinnersByYear();
+function getWinnersByYear(callback1, callback2, callback3, data) {
+	const record = [];
+	const winners = callback1(callback3, data);
+	const years = callback2(callback3, data);
+	for (let i = 0; i < years.length; i++) {
+		record.push(`In ${years[i]}, ${winners[i]} won the world cup!`);
+	}
+	return record;
+}
+console.log(getWinnersByYear(getWinners, getYears, getFinals, fifaData));
 
 /* Task 7: Write a function called `getAverageGoals` that accepts a parameter `data` and returns 
 the the average number of home team goals and away team goals scored per match 
